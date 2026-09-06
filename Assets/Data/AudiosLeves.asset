@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e38d0a1602da34b83dfd56c70bc343, type: 3}
+  m_Name: AudiosLeves
+  m_EditorClassIdentifier: Assembly-CSharp::AudiosLeves
+  IntrosClips:
+  - {fileID: 8300000, guid: 824a6902a222c944584d8e921b489b80, type: 3}
+  - {fileID: 8300000, guid: bb64bc3ae9339ab4587ae9401257b90f, type: 3}
+  - {fileID: 8300000, guid: 7785c4e9f64861b4f97faa288382318a, type: 3}
+  - {fileID: 8300000, guid: c933ca29149ed804892610b5478ab61b, type: 3}
+  - {fileID: 8300000, guid: 2abc0d80b188cb5428d2d78ccf9320ad, type: 3}
+  - {fileID: 8300000, guid: 3737c2c4af0fbc7408c5b0cc380a788e, type: 3}
+  IAVoicesClips:
+  - {fileID: 8300000, guid: 4b2cb7afc9340744fb6d3cbb3fc9d648, type: 3}
+  - {fileID: 8300000, guid: 0ff29fec0350b6f42a4b9aec50de5749, type: 3}
+  - {fileID: 8300000, guid: 20b72f30432ca534ab7c03a02b81553a, type: 3}
+  - {fileID: 8300000, guid: acc862628e230da45989db17d920a387, type: 3}
+  - {fileID: 8300000, guid: 76f4771fea7983549a318c4510674fdb, type: 3}
+  - {fileID: 8300000, guid: 443aa928310e2b54f88759e1c1303361, type: 3}
+  tutorialClips:
+  - {fileID: 8300000, guid: d4c56c3effff2aa4f9f0c8f500733b2f, type: 3}
