@@ -11,32 +11,21 @@ public class s_MirrorMovement : MonoBehaviour
     [SerializeField] float velocity;
     Vector3 targetPosition;
 
-
-    private bool isActive;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        isActive = false;       
-    }
-
     // Update is called once per frame
     void Update()
     {
         mirror.transform.position = Vector3.Lerp(mirror.transform.position, targetPosition, Time.deltaTime * velocity);
     }
 
-    public void MirrorActive()
+    public void DownMirror()
     {
-        if(isActive == false)
-        {
+        
             targetPosition = downPosition.transform.position;
-            isActive = true;
-        }
-        else
-        {
+        
+    }
+
+    public void UpMirror()
+    {
             targetPosition = topPosition.transform.position;
-            isActive = false;
-        }
     }
 }
