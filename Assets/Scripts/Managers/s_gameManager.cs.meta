@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4ae66f9523b6f5d449a07a7f23ce77e4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gameData: {fileID: 11400000, guid: dde4e9b04f3317848a53126ea5ec0d8d, type: 2}
+  - audioManager: {instanceID: 0}
+  - StartGameEvent: {fileID: 11400000, guid: ba920a6a852f032418cdbcdd404b4e5e, type: 2}
+  - StartMinigame: {fileID: 11400000, guid: e4ed8b7d136f6b548b5f2f7c0ff76cf8, type: 2}
+  - CinematicaFinal: {fileID: 11400000, guid: afcf065cb3ce54648bc3919b31743db1, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
