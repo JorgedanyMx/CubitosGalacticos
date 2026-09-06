@@ -8,10 +8,16 @@ public class SubjectToTest : ScriptableObject
     public string subjectBody;
     public void randomizeID()
     {
-        //Creas la funcionShige plox
+        int i = Random.Range(0, 2); // Genera 0 o 1
+        subjectID = "0" + i;
     }
     public void randomizeHead()
     {
-        //tu puedes Shige
+        subjectHead = $"HEAD_{subjectID}";
+    }
+
+    public void randomizeTorso()
+    {
+        subjectBody = $"TORSO_{subjectID}";
     }
 }

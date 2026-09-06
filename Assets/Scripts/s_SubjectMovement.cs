@@ -32,6 +32,6 @@ public class s_SubjectMovement : MonoBehaviour
     public void RestartSubject() //LLamado por evento
     {
             subject.transform.position = initialPosition.transform.position;
-            //targetPosition = initialPosition.transform.position;
+            targetPosition = initialPosition.transform.position;
     }
 }
