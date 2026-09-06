@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEngine.Rendering;
 
 public class p_ClickInputHandler : MonoBehaviour
 {
@@ -21,36 +22,6 @@ public class p_ClickInputHandler : MonoBehaviour
         IA_MouseClick = InputSystem.actions.FindAction("MouseClick");
         IA_MouseClick.Enable();
         IA_MouseClick.started += OnMouseClick;
-        IA_MouseClick.performed += OnMouseHold;
-        IA_MouseClick.canceled += OnMouseRelease;
-    }
-
-    private void OnMouseRelease(InputAction.CallbackContext context)
-    {
-        sliderSelected = false;
-        Cursor.visible = true;
-        // IA_MouseDelta.Disable();
-        if (temp_slider != null)
-        {
-            temp_slider.ShouldMove(false);
-        }
-    }
-
-    private void OnMouseHold(InputAction.CallbackContext context)
-    {
-        Ray ray = cam.ScreenPointToRay(MousePos.pos);
-        // Debug.Log("Creating Ray");
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.collider.TryGetComponent<p_ISlider>(out p_ISlider slider) && sliderSelected == false)
-            {
-                sliderSelected = true;
-                Cursor.visible = false;
-                slider.ShouldMove(true);
-                temp_slider = slider;
-            }
-        }
     }
     private void OnMouseClick(InputAction.CallbackContext context)
     {
@@ -64,6 +35,10 @@ public class p_ClickInputHandler : MonoBehaviour
             {
                 ButtonPressed(button.Clicked());
                 // Debug.Log("Button Pressed");
+            }
+            if (hit.collider.TryGetComponent<p_ISlider>(out p_ISlider slider))
+            {
+                slider.ShouldMove();
             }
             
         }
