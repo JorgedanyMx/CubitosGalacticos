@@ -8,17 +8,16 @@ using UnityEngine.Rendering;
 
 public class p_ClickInputHandler : MonoBehaviour
 {
-    [SerializeField] p_ISlider slider;
+    private p_SimonSaysManager manager;
     public p_MousePosition MousePos;
-    public InputAction IA_MouseClick;
+    private InputAction IA_MouseClick;
     
     public Camera cam;
-    public bool sliderSelected;
-    p_ISlider temp_slider;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
+        manager = FindFirstObjectByType<p_SimonSaysManager>();
         IA_MouseClick = InputSystem.actions.FindAction("MouseClick");
         IA_MouseClick.Enable();
         IA_MouseClick.started += OnMouseClick;
@@ -38,7 +37,11 @@ public class p_ClickInputHandler : MonoBehaviour
             }
             if (hit.collider.TryGetComponent<p_ISlider>(out p_ISlider slider))
             {
-                slider.ShouldMove();
+                slider.ShouldMove(hit.point);
+            }
+            if (hit.collider.TryGetComponent<p_IDial>(out p_IDial dial))
+            {
+                dial.ShouldMove();
             }
             
         }
@@ -46,12 +49,18 @@ public class p_ClickInputHandler : MonoBehaviour
     public List<int> playerList;
     public void ButtonPressed(int input)
     {
+        if (playerList.Count == manager.numAmount)
+            return; // ReturnPlayerList();
         playerList.Add(input);
         // foreach (int num in playerList)
         //     Debug.Log(num);
+        
     }
     // OnTimeEnd or OnGameEnd
     // playerList
-
-
+    public void ReturnPlayerList()
+    {
+        manager.CheckPlayerChoice(playerList);
+        playerList.Clear();
+    }
 }
