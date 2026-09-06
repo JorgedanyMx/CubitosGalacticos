@@ -6,70 +6,34 @@ using UnityEngine.InputSystem;
 
 
 public class p_moveSlider : MonoBehaviour, p_ISlider
-{
-    
-    public InputAction IA_MouseDelta;
-    float speed = 2;
-    [SerializeField] Transform min;
-    [SerializeField] Transform max;
-    float Mdelta;
-    bool Move = false;
-    bool move
+{   
+    public int currentPosition = 0;
+    public int maxPosition = 6;
+    [SerializeField] private Transform min;
+    [SerializeField] private Transform max;
+    public Vector3[] position;
+
+    void Start()
     {
-        get{ return Move; }
-        set
+        position = new Vector3[maxPosition+1];
+        Vector3 div = (max.position - min.position) / maxPosition;
+        for (int i = 0; i < maxPosition+1;i++)
         {
-            Move = value;
-            if (Move)
-                IA_MouseDelta.Enable();
-            else
-                IA_MouseDelta.Disable();
+            position[i] = min.position + (div*i);
         }
+
+        gameObject.transform.position = position[0];
     }
 
-    void OnEnable()
+    void ShouldMove()
     {
-        IA_MouseDelta = InputSystem.actions.FindAction("MouseDelta");
-        IA_MouseDelta.Disable();
-        IA_MouseDelta.performed += MouseDelta;
-        IA_MouseDelta.canceled += CursorSet;
+        currentPosition = currentPosition+1 > maxPosition? currentPosition = 0: currentPosition+1;
+        gameObject.transform.position = position[currentPosition];
     }
 
-    private void CursorSet(InputAction.CallbackContext context)
+    void p_ISlider.ShouldMove()
     {
-        Mouse.current.WarpCursorPosition(Camera.main.worldToCameraMatrix.MultiplyPoint3x4(gameObject.transform.position));
-        Debug.Log(gameObject.transform.position);
+        ShouldMove();
     }
-
-    void BarMoving(float direction)
-    {
-        float step = speed * Time.deltaTime;
-        gameObject.transform.position = Vector3.MoveTowards(
-            new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), 
-            new Vector3 (math.clamp(gameObject.transform.position.x + direction, min.position.x, max.position.x), gameObject.transform.position.y, gameObject.transform.position.z), 
-            step);
-    }
-    private void MouseDelta(InputAction.CallbackContext context)
-    {
-        Mdelta = (context.ReadValue<Vector2>().normalized).x;
-    }
-
-    void p_ISlider.ShouldMove(bool value)
-    {
-        move = value;
-    }
-
-    void Update()
-    {
-        if (move)
-        {
-            float step = speed * Time.deltaTime;
-            gameObject.transform.position = Vector3.MoveTowards(
-            new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), 
-            new Vector3 (math.clamp(gameObject.transform.position.x + Mdelta, min.position.x, max.position.x), gameObject.transform.position.y, gameObject.transform.position.z), 
-            step);
-        }
-    }
-
 }
 
