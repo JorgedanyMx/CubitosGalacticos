@@ -1,17 +1,11 @@
-using System;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
-public class p_moveSlider : MonoBehaviour, p_ISlider
+public class p_dialHandler : MonoBehaviour, p_ISlider
 {
-    
     public InputAction IA_MouseDelta;
-    float speed = 2;
-    [SerializeField] Transform min;
-    [SerializeField] Transform max;
+    float speed = 25;
     float Mdelta;
     bool Move = false;
     bool move
@@ -41,17 +35,19 @@ public class p_moveSlider : MonoBehaviour, p_ISlider
         Debug.Log(gameObject.transform.position);
     }
 
-    void BarMoving(float direction)
+    void DialRotating(float direction)
     {
         float step = speed * Time.deltaTime;
-        gameObject.transform.position = Vector3.MoveTowards(
-            new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), 
-            new Vector3 (math.clamp(gameObject.transform.position.x + direction, min.position.x, max.position.x), gameObject.transform.position.y, gameObject.transform.position.z), 
-            step);
+        // gameObject.transform.rotation = Mathf.Lerp(gameObject.transform.rotation, )
+        
+        // gameObject.transform.position = Vector3.MoveTowards(
+        //     new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), 
+        //     new Vector3 (math.clamp(gameObject.transform.position.y + direction, min.position.x, max.position.x), gameObject.transform.position.y, gameObject.transform.position.z), 
+        //     step);
     }
     private void MouseDelta(InputAction.CallbackContext context)
     {
-        Mdelta = (context.ReadValue<Vector2>().normalized).x;
+        Mdelta = (context.ReadValue<Vector2>().normalized).y * 2;
     }
 
     void p_ISlider.ShouldMove(bool value)
@@ -64,12 +60,17 @@ public class p_moveSlider : MonoBehaviour, p_ISlider
         if (move)
         {
             float step = speed * Time.deltaTime;
-            gameObject.transform.position = Vector3.MoveTowards(
-            new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), 
-            new Vector3 (math.clamp(gameObject.transform.position.x + Mdelta, min.position.x, max.position.x), gameObject.transform.position.y, gameObject.transform.position.z), 
-            step);
+            Vector3 currentEuler = gameObject.transform.localEulerAngles;
+            Vector3 targetEuler = new Vector3(
+                currentEuler.x,
+                math.clamp(currentEuler.y + Mdelta * 8, -120, 240),
+                currentEuler.z
+            );
+            gameObject.transform.localRotation = Quaternion.RotateTowards(
+                Quaternion.Euler(currentEuler),
+                Quaternion.Euler(targetEuler),
+                step
+            );
         }
     }
-
 }
-
