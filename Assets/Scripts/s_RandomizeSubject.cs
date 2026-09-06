@@ -13,6 +13,8 @@ public class s_RandomizeSubject : MonoBehaviour
     [SerializeField] private MeshFilter activeHead;
     [SerializeField] private MeshFilter activeTorso;
 
+    
+
     public void SpawnSubject()
     {
         int randomHead = Random.Range(0, headPrefabs.Length);
