@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface p_ISlider
 {
-    void ShouldMove();
+    void ShouldMove(bool value);
 }

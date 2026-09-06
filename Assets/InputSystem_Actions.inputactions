@@ -1021,7 +1021,7 @@
                     "id": "f9ca71db-638b-4bb9-932d-7e0ad748038b",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold(duration=0.4,pressPoint=0.5),Press(behavior=2)",
                     "initialStateCheck": false,
                     "priority": 0
                 },
@@ -1029,6 +1029,16 @@
                     "name": "MousePosition",
                     "type": "Value",
                     "id": "a01b0504-11ad-43ef-a15b-d62727d24751",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "MouseDelta",
+                    "type": "Value",
+                    "id": "10a1ed20-32b6-4f8e-80ea-be13d022169a",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -1056,6 +1066,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8b0a211-8e0c-4049-a21b-a0ffb7b96a67",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "NormalizeVector2",
+                    "groups": "",
+                    "action": "MouseDelta",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
