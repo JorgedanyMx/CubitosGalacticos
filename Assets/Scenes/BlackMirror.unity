@@ -467,8 +467,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1985463630829130255, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
       propertyPath: m_Name
-      value: SubjectSpawner 1
+      value: SubjectSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5337544304756470300, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: subjectData
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f74436552d22a94c9be5a2340eea773, type: 2}
+    - target: {fileID: 5337544304756470300, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: headPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337544304756470300, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: torsoPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337544304756470300, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: 'headPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7907527157761159161, guid: e7bafbf6d87314390901fee59c4e87be, type: 3}
+    - target: {fileID: 5337544304756470300, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: 'torsoPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7466467916345835097, guid: 95e5d5add26e144a18e3beae31d040c0, type: 3}
+    - target: {fileID: 5337544304756470300, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: 'torsoPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7466467916345835097, guid: f5042392a16b847d09430085fe706d61, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
