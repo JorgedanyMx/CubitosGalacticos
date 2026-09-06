@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
 public interface p_ISlider
 {
-    void ShouldMove();
+    void ShouldMove(Vector3 t);
 }

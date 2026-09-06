@@ -2,7 +2,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class p_dialHandler : MonoBehaviour, p_ISlider
+public class p_dialHandler : MonoBehaviour, p_IDial
 {
     public int currentPosition = 0;
     public int maxPosition = 6;
@@ -28,7 +28,7 @@ public class p_dialHandler : MonoBehaviour, p_ISlider
         gameObject.transform.rotation = rotation[currentPosition];
     }
 
-    void p_ISlider.ShouldMove()
+    void p_IDial.ShouldMove()
     {
         ShouldMove();
     }

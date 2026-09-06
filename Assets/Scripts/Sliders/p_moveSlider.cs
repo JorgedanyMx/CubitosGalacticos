@@ -9,31 +9,26 @@ public class p_moveSlider : MonoBehaviour, p_ISlider
 {   
     public int currentPosition = 0;
     public int maxPosition = 6;
-    [SerializeField] private Transform min;
-    [SerializeField] private Transform max;
+    public Transform min;
+    public Transform max;
+    [SerializeField] private Transform slide;
     public Vector3[] position;
+    public Vector3 finalPosition;
 
     void Start()
     {
-        position = new Vector3[maxPosition+1];
-        Vector3 div = (max.position - min.position) / maxPosition;
-        for (int i = 0; i < maxPosition+1;i++)
-        {
-            position[i] = min.position + (div*i);
-        }
-
-        gameObject.transform.position = position[0];
+        // gameObject.transform.position = position[0];
     }
 
-    void ShouldMove()
+    void ShouldMove(Vector3 target)
     {
-        currentPosition = currentPosition+1 > maxPosition? currentPosition = 0: currentPosition+1;
-        gameObject.transform.position = position[currentPosition];
+        slide.position = new Vector3 ((target.x < min.position.x? min.position.x : target.x) > max.position.x? max.position.x : target.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        finalPosition = slide.position;
     }
 
-    void p_ISlider.ShouldMove()
+    void p_ISlider.ShouldMove(Vector3 target)
     {
-        ShouldMove();
+        ShouldMove(target);
     }
 }
 
