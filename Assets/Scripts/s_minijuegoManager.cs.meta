@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b7e8fbbe7ddc20145a6a3be78fa24de9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - WinMinigameEvent: {fileID: 11400000, guid: ccc7233e115ef344fbbca713e812c468, type: 2}
+  - LostMinigameEvent: {fileID: 11400000, guid: 5c1a750f46c40114d830c5f4ecd7f456, type: 2}
+  - SubjectToTest: {fileID: 11400000, guid: 8f74436552d22a94c9be5a2340eea773, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
