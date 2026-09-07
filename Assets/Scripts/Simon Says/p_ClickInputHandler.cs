@@ -14,6 +14,9 @@ public class p_ClickInputHandler : MonoBehaviour
     
     public Camera cam;
 
+    private Vector3 ultimoPuntoImpacto;
+    private bool hayImpacto = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
@@ -29,7 +32,9 @@ public class p_ClickInputHandler : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log("Starting Ray");
+            Debug.DrawRay(ray.origin, ray.direction*100, Color.green, 10.5f);
+
+            //Debug.Log("Starting Ray");
             if (hit.collider.TryGetComponent<p_IButton>(out p_IButton button))
             {
                 ButtonPressed(button.Clicked());
@@ -37,13 +42,14 @@ public class p_ClickInputHandler : MonoBehaviour
             }
             if (hit.collider.TryGetComponent<p_ISlider>(out p_ISlider slider))
             {
+                hayImpacto = true;
+                ultimoPuntoImpacto = hit.point;
                 slider.ShouldMove(hit.point);
             }
             if (hit.collider.TryGetComponent<p_IDial>(out p_IDial dial))
             {
                 dial.ShouldMove();
             }
-            
         }
     }
     public List<int> playerList;
@@ -62,5 +68,14 @@ public class p_ClickInputHandler : MonoBehaviour
     {
         manager.CheckPlayerChoice(playerList);
         playerList.Clear();
+    }
+    void OnDrawGizmos()
+    {
+        if (hayImpacto)
+        {
+            Gizmos.color = Color.red;
+            // Dibuja una esfera en la posición del hit
+            Gizmos.DrawSphere(ultimoPuntoImpacto, 0.015f);
+        }
     }
 }
