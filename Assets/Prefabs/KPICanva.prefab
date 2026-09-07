@@ -238,7 +238,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2954977388113993168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +329,7 @@ RectTransform:
   m_GameObject: {fileID: 7729447472663184489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9930931, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3158859466010184421}
@@ -369,7 +369,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 8797143352183075741, guid: f8530b50622bbcc46a5176d045352315, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
