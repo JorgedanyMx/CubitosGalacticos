@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class s_RandomizeSubject : MonoBehaviour
@@ -7,6 +8,8 @@ public class s_RandomizeSubject : MonoBehaviour
     [SerializeField] private SubjectToTest subjectData;
     [SerializeField] GameObject subjectActive;
 
+    [Header("ID")]
+    [SerializeField] private TMP_Text subjectIDText;
 
 
     [SerializeField] private GameObject[] headPrefabs;
@@ -24,6 +27,8 @@ public class s_RandomizeSubject : MonoBehaviour
         subjectData.randomizeID();
         subjectData.randomizeHead();
         subjectData.randomizeTorso();
+
+        subjectIDText.text = subjectData.subjectID;
         
         GameObject selectedHead = null;
         GameObject selectedTorso = null;
