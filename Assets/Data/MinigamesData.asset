@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c56675601dbf4cc7b053e7754142efe, type: 3}
   m_Name: MinigamesData
   m_EditorClassIdentifier: Assembly-CSharp::MinigamesData
-  simonSays: 
-  dialValue: 0
-  sliderValue: 0
+  simonSays: amarillo,morado,azul,verde
+  dialValue: 10
+  sliderValue: 3
