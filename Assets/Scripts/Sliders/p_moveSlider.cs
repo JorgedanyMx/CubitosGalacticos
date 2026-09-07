@@ -18,13 +18,26 @@ public class p_moveSlider : MonoBehaviour, p_ISlider
     void Start()
     {
         // gameObject.transform.position = position[0];
+        if (min.position.z> max.position.z)
+        {
+            Transform tmptransform=min;
+            min = max;
+            max = tmptransform;
+        }
     }
 
     void ShouldMove(Vector3 target)
     {
-        slide.position = new Vector3 (slide.transform.position.x, slide.transform.position.y, (target.z < min.position.z? min.position.z : target.z) > max.position.z? max.position.z : target.z);
+        Debug.Log("Cursor: " + target.z);
+        float tmpZtarget = target.z;
+        if(tmpZtarget<min.position.z || tmpZtarget > max.position.z)
+        {
+            return;
+        }
+        slide.position = new Vector3 (slide.transform.position.x, slide.transform.position.y, tmpZtarget);
         finalPosition = slide.position;
         Debug.Log(finalPosition);
+        Debug.Log("Final: " + finalPosition.z);
     }
 
     void p_ISlider.ShouldMove(Vector3 target)
