@@ -22,12 +22,14 @@ public class p_moveSlider : MonoBehaviour, p_ISlider
 
     void ShouldMove(Vector3 target)
     {
-        slide.position = new Vector3 ((target.x < min.position.x? min.position.x : target.x) > max.position.x? max.position.x : target.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        slide.position = new Vector3 (slide.transform.position.x, slide.transform.position.y, (target.z < min.position.z? min.position.z : target.z) > max.position.z? max.position.z : target.z);
         finalPosition = slide.position;
+        Debug.Log(finalPosition);
     }
 
     void p_ISlider.ShouldMove(Vector3 target)
     {
+        Debug.Log("hit" + target);
         ShouldMove(target);
     }
 }
