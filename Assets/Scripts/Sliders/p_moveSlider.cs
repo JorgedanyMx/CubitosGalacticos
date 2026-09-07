@@ -2,19 +2,38 @@ using System;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class p_moveSlider : MonoBehaviour
-{
-    float speed = 1;
-    [SerializeField] Transform min;
-    [SerializeField] Transform max;
-    
-    void BarMoving(int direction)
+
+public class p_moveSlider : MonoBehaviour, p_ISlider
+{   
+    public int currentPosition = 0;
+    public int maxPosition = 6;
+    [SerializeField] private Transform min;
+    [SerializeField] private Transform max;
+    public Vector3[] position;
+
+    void Start()
     {
-        float step = speed * Time.deltaTime;
-        gameObject.transform.position = Vector3.MoveTowards(
-            new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), 
-            new Vector3 (math.clamp(gameObject.transform.position.x + direction, min.position.x, max.position.x), gameObject.transform.position.y, gameObject.transform.position.z), 
-            step);
+        position = new Vector3[maxPosition+1];
+        Vector3 div = (max.position - min.position) / maxPosition;
+        for (int i = 0; i < maxPosition+1;i++)
+        {
+            position[i] = min.position + (div*i);
+        }
+
+        gameObject.transform.position = position[0];
+    }
+
+    void ShouldMove()
+    {
+        currentPosition = currentPosition+1 > maxPosition? currentPosition = 0: currentPosition+1;
+        gameObject.transform.position = position[currentPosition];
+    }
+
+    void p_ISlider.ShouldMove()
+    {
+        ShouldMove();
     }
 }
+
