@@ -23,10 +23,11 @@ public class s_minijuegoManager : MonoBehaviour
     
     public void StartMiniGame()                                     //Se baja mirror
     {
+        gameData.gameStates =GameStates.Minijuego;
         ResetScript();
         gameData.AddSubjectCount();
         gameData.playerScore += 1;
-        StartCoroutine(DelayNextPrueba(30000));
+        StartCoroutine(DelayNextPrueba(10000));
     }
     public void IniciaPrueba()
     {
@@ -41,7 +42,7 @@ public class s_minijuegoManager : MonoBehaviour
         {
             gameData.gameStates = GameStates.cinematica;
         }
-        StartCoroutine(DelayNextPrueba(30000));
+        StartCoroutine(DelayNextPrueba(10000));
     }
 
     IEnumerator DelayNextStage(int delaytime)
@@ -54,7 +55,7 @@ public class s_minijuegoManager : MonoBehaviour
     {
         // Espera la duración exacta del clip actual
         yield return new WaitForSeconds(delaytime);
-        StartMinigameEvent.Raise();
+        IniciaPruebaEvent.Raise();
     }
     
     public void RightSimon()
