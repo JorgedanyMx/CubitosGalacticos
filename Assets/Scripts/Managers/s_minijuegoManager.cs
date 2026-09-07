@@ -27,27 +27,27 @@ public class s_minijuegoManager : MonoBehaviour
         ResetScript();
         gameData.AddSubjectCount();
         gameData.playerScore += 1;
-        StartCoroutine(DelayNextPrueba(10000));
+        StartCoroutine(DelayNextPrueba(5f));
     }
     public void IniciaPrueba()
     {
-        //pass
         MgStates = minigameStates.InicioJuego;
+        Debug.Log("Si esta entrando y ahora va a salir");
         StartCoroutine(FinishMinigame(gameData.minigametime));
     }
     public void FinPrueba()
     {
-        FinPruebaEvent.Raise();
         if (gameData.playerScore >= gameData.GetTotalSub())
         {
             gameData.gameStates = GameStates.cinematica;
         }
-        StartCoroutine(DelayNextPrueba(10000));
+        StartCoroutine(DelayNextPrueba(10f));
     }
     IEnumerator FinishMinigame(float delaytime)
     {
         // Espera la duración exacta del clip actual
         yield return new WaitForSeconds(delaytime);
+        Debug.Log("fin de prueba");
         FinPruebaEvent.Raise();
         gameData.minigametime -= 1f;
         MgStates = minigameStates.FinJuego;
@@ -60,9 +60,12 @@ public class s_minijuegoManager : MonoBehaviour
     }
     IEnumerator DelayNextPrueba(float delaytime)
     {
+        Debug.Log("EmpiezaCorrutinadePrueba");
+
         // Espera la duración exacta del clip actual
         yield return new WaitForSeconds(delaytime);
         IniciaPruebaEvent.Raise();
+        Debug.Log("Inicia Prueba");
     }
     
     public void RightSimon()
@@ -98,7 +101,6 @@ public class s_minijuegoManager : MonoBehaviour
             LostMinigameEvent.Raise();
         }
         MgStates = minigameStates.FinJuego;
-        FinPruebaEvent.Raise();
         ResetScript();
     }
     private void ResetScript()

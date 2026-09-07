@@ -13,10 +13,11 @@ public class s_MirrorMovement : MonoBehaviour
 
     void Start()
     {
+        targetPosition = topPosition.transform.position;
         Debug.Log("Mirror Position: " +mirror.transform.position );
         Debug.Log("Top Position: " +topPosition.transform.position );
         
-        mirror.transform.position = downPosition.transform.position;
+        //mirror.transform.position = downPosition.transform.position;
         Debug.Log("Final Position: " +mirror.transform.position );
     }
 

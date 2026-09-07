@@ -31,6 +31,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f45a58ff0131e5c47b4a4924df7c71c2, type: 3}
   - {fileID: 8300000, guid: f85a0d740107a4d45b2aaacc0907e3af, type: 3}
   tutorialClips:
-  - {fileID: 8300000, guid: 0c678bc490da02a448b66de442e2cff3, type: 3}
+  - {fileID: 8300000, guid: d4c56c3effff2aa4f9f0c8f500733b2f, type: 3}
   - {fileID: 8300000, guid: 511e7182461b37941b52176346f85851, type: 3}
   - {fileID: 8300000, guid: 481231ddb9c12eb4cb0b525460cfbddd, type: 3}
