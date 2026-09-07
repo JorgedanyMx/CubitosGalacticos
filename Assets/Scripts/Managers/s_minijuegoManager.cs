@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+
 
 public class s_minijuegoManager : MonoBehaviour
 {
@@ -6,6 +8,8 @@ public class s_minijuegoManager : MonoBehaviour
     public GameEvent LostMinigameEvent;
     public GameEvent IniciaPruebaEvent;
     public GameEvent FinPruebaEvent;
+    public GameEvent StartMinigameEvent;
+    public GameData gameData;
     public minigameStates MgStates;
 
     private bool winSimon = false;
@@ -20,13 +24,39 @@ public class s_minijuegoManager : MonoBehaviour
     public void StartMiniGame()                                     //Se baja mirror
     {
         ResetScript();
-        IniciaPruebaEvent.Raise();                                   //A modificaaaaaaaaaaaar con delay
+        gameData.AddSubjectCount();
+        gameData.playerScore += 1;
+        StartCoroutine(DelayNextPrueba(30000));
     }
     public void IniciaPrueba()
     {
         //pass
         MgStates = minigameStates.InicioJuego;
     }
+    public void FinPrueba()
+    {
+        MgStates = minigameStates.FinJuego;
+        FinPruebaEvent.Raise();
+        if (gameData.playerScore >= gameData.GetTotalSub())
+        {
+            gameData.gameStates = GameStates.cinematica;
+        }
+        StartCoroutine(DelayNextPrueba(30000));
+    }
+
+    IEnumerator DelayNextStage(int delaytime)
+    {
+        // Espera la duración exacta del clip actual
+        yield return new WaitForSeconds(delaytime);
+        IniciaPruebaEvent.Raise();
+    }
+    IEnumerator DelayNextPrueba(int delaytime)
+    {
+        // Espera la duración exacta del clip actual
+        yield return new WaitForSeconds(delaytime);
+        StartMinigameEvent.Raise();
+    }
+    
     public void RightSimon()
     {
         winSimon = true;

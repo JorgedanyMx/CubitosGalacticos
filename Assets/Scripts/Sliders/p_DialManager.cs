@@ -3,7 +3,7 @@ using UnityEngine;
 public class p_DialManager : MonoBehaviour
 {
     private p_dialHandler dial;
-    private int targetPosition;
+    public int targetPosition;
     bool correct;
 
     private void Start()

@@ -16,10 +16,22 @@ public class s_AudioManager : MonoBehaviour
             Debug.Log("Auido fuera de rango");
         else
             audioSource.PlayOneShot(audioSO.tutorialClips[clipIndex]);
-
+    }
+    public void NuevoMinigame()
+    {
+        gameData.ObtenerNumeroSinRepetirHastaAgotar();
+    }
+    public void IntroSujeto()
+    {
+        playIntroClips(gameData.currentPlayerID);
+    }
+    public void FinSujectoCorrecto()
+    {
+        playIAVocesClips(gameData.currentPlayerID);
     }
     public void playIntroClips(int clipIndex)
     {
+        gameData.TotalSubjects(audioSO.IntrosClips.Length);
         if (clipIndex > audioSO.tutorialClips.Length)
             Debug.Log("Auido fuera de rango");
         else
@@ -32,7 +44,14 @@ public class s_AudioManager : MonoBehaviour
         else
             audioSource.PlayOneShot(audioSO.IAVoicesClips[clipIndex]);
     }
-
+    public void BadEnding()
+    {
+        GetAudioTutorial(1);
+    }
+    public void GoodEnding()
+    {
+        GetAudioTutorial(2);
+    }
     public void playSound(AudioClip audioClip)
     {
         audioSource.PlayOneShot(audioClip);

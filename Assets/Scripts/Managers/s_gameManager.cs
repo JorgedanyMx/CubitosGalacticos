@@ -9,6 +9,7 @@ public class s_gameManager : MonoBehaviour
     public GameEvent StartGameEvent;
     public GameEvent StartMinigame;
     public GameEvent CinematicaFinal;
+    public GameEvent BadEndingFinalEvent;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class s_gameManager : MonoBehaviour
     }
     public void FinMinijuegos()
     {
+    
         if(gameData.gameStates == GameStates.cinematica)
         {
             Debug.Log("Se acabo el juego");
@@ -35,8 +37,13 @@ public class s_gameManager : MonoBehaviour
             else
             {
                 Debug.Log("Repetir nivel");
+                BadEndingFinalEvent.Raise();
             }
         }
+    }
+    public void SujetoAprovado()
+    {
+        gameData.currentScore++;
     }
     IEnumerator FinTutorial(AudioClip clip)
     {

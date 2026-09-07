@@ -5,20 +5,19 @@ using UnityEngine.Events;
 
 public class p_MinigameManager : MonoBehaviour
 {
-    [SerializeField] private GameEvent OnMiniGameBegin;
-    [SerializeField] private GameEvent OnMiniGameEnd;
+    [SerializeField] private MinigamesData Data;
     [SerializeField] private p_SimonSaysManager simonSays;
-    [SerializeField] private p_moveSlider slider;
-    [SerializeField] private p_dialHandler dial;
+    [SerializeField] private p_SliderManager slider;
+    [SerializeField] private p_DialManager dial;
     
-    public void MiniGameBegin()
+    public void GameStart()
     {
-        OnMiniGameBegin.Raise();
-    }
-
-    public void MiniGameEnd()
-    {
-        OnMiniGameEnd.Raise();
+        simonSays.GameStart();
+        slider.OnMiniGameStart();
+        dial.OnMiniGameStart();
+        Data.simonSays = simonSays.stream;
+        Data.sliderValue = slider.targetPosition;
+        Data.dialValue = dial.targetPosition;
     }
     
 }
