@@ -3,30 +3,32 @@ using UnityEngine;
 public class p_SliderManager : MonoBehaviour
 {
     private p_moveSlider slider;
-    private Vector3 targetPosition;
+    public int targetPosition;
     bool correct;
+
     private void Start()
     {
         slider = FindFirstObjectByType<p_moveSlider>();
-        
     }
+
     public void OnMiniGameEnd()
     {
-        if (Vector3.Distance(targetPosition, slider.finalPosition) <= 0.5f)
+        if (slider.currentPosition == targetPosition)
         {
             correct = true;
-            Debug.Log("YUPPERS Slider");
+            Debug.Log("YUPPERS");
         }
         else
         {
             correct = false;
-            Debug.Log("NOPE slider");
+            Debug.Log("NOPE");
         }
     }
+
     public void OnMiniGameStart()
     {
-        float r = Random.Range(0f, 1f);
-        targetPosition = Vector3.Lerp(slider.min.position, slider.max.position, r);
-        Debug.Log(targetPosition);
+        // maxPosition is a const, inclusive range: 0, 1, or 2
+        targetPosition = Random.Range(0, p_moveSlider.maxPosition + 1);
+        Debug.Log("Target position index: " + targetPosition);
     }
 }
