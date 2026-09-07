@@ -4,6 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - audioSO: {fileID: 11400000, guid: 43e52969455d33441a0e2a3243ec3b2c, type: 2}
   - gameData: {fileID: 11400000, guid: dde4e9b04f3317848a53126ea5ec0d8d, type: 2}
   - audioMixer: {instanceID: 0}
   - audioSource: {instanceID: 0}
