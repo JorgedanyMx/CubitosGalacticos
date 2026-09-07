@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3577334041332670755}
   - component: {fileID: 2663132049837092318}
   m_Layer: 0
-  m_Name: TORSO_02
+  m_Name: TORSO_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
