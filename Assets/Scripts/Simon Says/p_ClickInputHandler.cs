@@ -60,6 +60,7 @@ public class p_ClickInputHandler : MonoBehaviour
         playerList.Add(input);
         // foreach (int num in playerList)
         //     Debug.Log(num);
+        Debug.Log(input);
         
     }
     // OnTimeEnd or OnGameEnd
