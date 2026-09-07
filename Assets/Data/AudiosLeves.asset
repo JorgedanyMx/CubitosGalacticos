@@ -19,6 +19,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c933ca29149ed804892610b5478ab61b, type: 3}
   - {fileID: 8300000, guid: 2abc0d80b188cb5428d2d78ccf9320ad, type: 3}
   - {fileID: 8300000, guid: 3737c2c4af0fbc7408c5b0cc380a788e, type: 3}
+  - {fileID: 8300000, guid: 2e5155ba9d6405741a3ffff770594b4e, type: 3}
+  - {fileID: 8300000, guid: 59a89f1f4c18a0044a0f44a714465198, type: 3}
   IAVoicesClips:
   - {fileID: 8300000, guid: 4b2cb7afc9340744fb6d3cbb3fc9d648, type: 3}
   - {fileID: 8300000, guid: 0ff29fec0350b6f42a4b9aec50de5749, type: 3}
@@ -26,5 +28,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: acc862628e230da45989db17d920a387, type: 3}
   - {fileID: 8300000, guid: 76f4771fea7983549a318c4510674fdb, type: 3}
   - {fileID: 8300000, guid: 443aa928310e2b54f88759e1c1303361, type: 3}
+  - {fileID: 8300000, guid: f45a58ff0131e5c47b4a4924df7c71c2, type: 3}
+  - {fileID: 8300000, guid: f85a0d740107a4d45b2aaacc0907e3af, type: 3}
   tutorialClips:
   - {fileID: 8300000, guid: d4c56c3effff2aa4f9f0c8f500733b2f, type: 3}
+  - {fileID: 8300000, guid: 511e7182461b37941b52176346f85851, type: 3}
+  - {fileID: 8300000, guid: 511e7182461b37941b52176346f85851, type: 3}

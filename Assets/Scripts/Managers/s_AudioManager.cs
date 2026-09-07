@@ -33,7 +33,10 @@ public class s_AudioManager : MonoBehaviour
         else
             audioSource.PlayOneShot(audioSO.IAVoicesClips[clipIndex]);
     }
-
+    public void BadEnding()
+    {
+        GetAudioTutorial(1);
+    }
     public void playSound(AudioClip audioClip)
     {
         audioSource.PlayOneShot(audioClip);

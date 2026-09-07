@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9181184256928349903}
   - component: {fileID: 5278309289890888046}
   - component: {fileID: 8187884223860327599}
+  - component: {fileID: 7841397770783134709}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -146,6 +147,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7841397770783134709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151586858403969569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de647a1387397245a770e3445ec56f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  Event: {fileID: 11400000, guid: f994293611a91a6489a7928649887b48, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5278309289890888046}
+        m_TargetAssemblyTypeName: s_AudioManager, Assembly-CSharp
+        m_MethodName: BadEnding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4305875223949801979
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +227,8 @@ MonoBehaviour:
   LostMinigameEvent: {fileID: 11400000, guid: 5c1a750f46c40114d830c5f4ecd7f456, type: 2}
   IniciaPruebaEvent: {fileID: 11400000, guid: ba583dcdc78d19848b5f51196ab254bd, type: 2}
   FinPruebaEvent: {fileID: 11400000, guid: cb427af0bcf72334ea2f8e721904dc36, type: 2}
+  StartMinigameEvent: {fileID: 11400000, guid: 1b022abd50b864141953f31dac5d322f, type: 2}
+  gameData: {fileID: 11400000, guid: dde4e9b04f3317848a53126ea5ec0d8d, type: 2}
   MgStates: 0
 --- !u!114 &7482915792129635336
 MonoBehaviour:
@@ -362,6 +393,7 @@ MonoBehaviour:
   StartGameEvent: {fileID: 11400000, guid: ba920a6a852f032418cdbcdd404b4e5e, type: 2}
   StartMinigame: {fileID: 11400000, guid: e4ed8b7d136f6b548b5f2f7c0ff76cf8, type: 2}
   CinematicaFinal: {fileID: 11400000, guid: afcf065cb3ce54648bc3919b31743db1, type: 2}
+  BadEndingFinalEvent: {fileID: 0}
 --- !u!114 &3743086305105110977
 MonoBehaviour:
   m_ObjectHideFlags: 0

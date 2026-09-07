@@ -347,13 +347,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 472888722239801793, guid: 93bafb7cc980bd945829ac1e2fe88a80, type: 3}
-      propertyPath: FinPruebaEvent
+      propertyPath: gameData
       value: 
-      objectReference: {fileID: 11400000, guid: cb427af0bcf72334ea2f8e721904dc36, type: 2}
+      objectReference: {fileID: 11400000, guid: dde4e9b04f3317848a53126ea5ec0d8d, type: 2}
     - target: {fileID: 472888722239801793, guid: 93bafb7cc980bd945829ac1e2fe88a80, type: 3}
-      propertyPath: IniciaPruebaEvent
+      propertyPath: StartMinigameEvent
       value: 
-      objectReference: {fileID: 11400000, guid: ba583dcdc78d19848b5f51196ab254bd, type: 2}
+      objectReference: {fileID: 11400000, guid: 1b022abd50b864141953f31dac5d322f, type: 2}
     - target: {fileID: 1246374929468089799, guid: 93bafb7cc980bd945829ac1e2fe88a80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -394,18 +394,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8172954555988923122, guid: 93bafb7cc980bd945829ac1e2fe88a80, type: 3}
-      propertyPath: StartMinigame
-      value: 
-      objectReference: {fileID: 11400000, guid: e4ed8b7d136f6b548b5f2f7c0ff76cf8, type: 2}
-    - target: {fileID: 8172954555988923122, guid: 93bafb7cc980bd945829ac1e2fe88a80, type: 3}
-      propertyPath: StartGameEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: ba920a6a852f032418cdbcdd404b4e5e, type: 2}
-    - target: {fileID: 8172954555988923122, guid: 93bafb7cc980bd945829ac1e2fe88a80, type: 3}
-      propertyPath: CinematicaFinal
-      value: 
-      objectReference: {fileID: 11400000, guid: afcf065cb3ce54648bc3919b31743db1, type: 2}
     - target: {fileID: 9220177709839197427, guid: 93bafb7cc980bd945829ac1e2fe88a80, type: 3}
       propertyPath: m_Name
       value: Managers

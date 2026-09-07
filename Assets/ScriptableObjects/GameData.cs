@@ -24,6 +24,10 @@ public class GameData : ScriptableObject
     {
         totalSubjects = subjects;
     }
+    public int GetTotalSub()
+    {
+        return totalSubjects;
+    }
     public void ResetData()
     {
         playerScore = 0;

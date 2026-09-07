@@ -25,6 +25,7 @@ public class s_minijuegoManager : MonoBehaviour
     {
         ResetScript();
         gameData.AddSubjectCount();
+        gameData.playerScore += 1;
         StartCoroutine(DelayNextPrueba(30000));
     }
     public void IniciaPrueba()
@@ -36,8 +37,11 @@ public class s_minijuegoManager : MonoBehaviour
     {
         MgStates = minigameStates.FinJuego;
         FinPruebaEvent.Raise();
+        if (gameData.playerScore >= gameData.GetTotalSub())
+        {
+            gameData.gameStates = GameStates.cinematica;
+        }
         StartCoroutine(DelayNextPrueba(30000));
-
     }
 
     IEnumerator DelayNextStage(int delaytime)
