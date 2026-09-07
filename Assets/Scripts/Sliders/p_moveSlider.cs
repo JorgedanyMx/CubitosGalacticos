@@ -8,9 +8,8 @@ using UnityEngine.InputSystem;
 public class p_moveSlider : MonoBehaviour, p_ISlider
 {   
     public int currentPosition = 0;
-    public const int maxPosition = 2; // 0 = min, 1 = mid, 2 = max
+    public int maxPosition = 6;
     public Transform min;
-    public Transform mid;
     public Transform max;
     [SerializeField] private Transform slide;
     public Vector3[] position;
@@ -18,26 +17,32 @@ public class p_moveSlider : MonoBehaviour, p_ISlider
 
     void Start()
     {
-        position = new Vector3[]
+        // gameObject.transform.position = position[0];
+        if (min.position.z> max.position.z)
         {
-            min.position,
-            mid.position,
-            max.position,
-        };
-
-        slide.position = position[0];
-        finalPosition = slide.position;
+            Transform tmptransform=min;
+            min = max;
+            max = tmptransform;
+        }
     }
 
     void ShouldMove(Vector3 target)
     {
-        currentPosition = currentPosition + 1 > maxPosition ? 0 : currentPosition + 1;
-        slide.position = position[currentPosition];
+        Debug.Log("Cursor: " + target.z);
+        float tmpZtarget = target.z;
+        if(tmpZtarget<min.position.z || tmpZtarget > max.position.z)
+        {
+            return;
+        }
+        slide.position = new Vector3 (slide.transform.position.x, slide.transform.position.y, tmpZtarget);
         finalPosition = slide.position;
+        Debug.Log(finalPosition);
+        Debug.Log("Final: " + finalPosition.z);
     }
 
     void p_ISlider.ShouldMove(Vector3 target)
     {
+        Debug.Log("hit" + target);
         ShouldMove(target);
     }
 }
