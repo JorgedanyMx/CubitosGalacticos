@@ -25,6 +25,8 @@ public class s_gameManager : MonoBehaviour
     }
     public void FinMinijuegos()
     {
+
+
         if(gameData.gameStates == GameStates.cinematica)
         {
             Debug.Log("Se acabo el juego");
@@ -37,6 +39,10 @@ public class s_gameManager : MonoBehaviour
                 Debug.Log("Repetir nivel");
             }
         }
+    }
+    public void SujetoAprovado()
+    {
+        gameData.currentScore++;
     }
     IEnumerator FinTutorial(AudioClip clip)
     {

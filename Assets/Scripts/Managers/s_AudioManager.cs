@@ -20,6 +20,7 @@ public class s_AudioManager : MonoBehaviour
     }
     public void playIntroClips(int clipIndex)
     {
+        gameData.TotalSubjects(audioSO.IntrosClips.Length);
         if (clipIndex > audioSO.tutorialClips.Length)
             Debug.Log("Auido fuera de rango");
         else
