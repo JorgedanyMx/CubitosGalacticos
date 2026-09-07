@@ -7,12 +7,25 @@ public class s_Menu : MonoBehaviour
     public GameObject globalMenu;
     public GameObject mainMenu;
     public GameObject pauseMenu;
+    public GameObject creditosMenu;
+    public GameObject Creditos;
+    public GameObject BotonRetroceso;
 
-    void Start()
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.SetActive(true);
+        }
+    }
+
+    public void Start()
     {
         globalMenu.SetActive(true);
         mainMenu.SetActive(true);
         pauseMenu.SetActive(false);
+        creditosMenu.SetActive(true);
+        Creditos.SetActive(false);
     }
     public void StartLevel()
     {
@@ -37,6 +50,15 @@ public class s_Menu : MonoBehaviour
     public void OptionsMenu()
     {
         //Needs Review
+    }
+
+    public void CreditosMenu()
+    {
+        globalMenu.SetActive(false);
+        mainMenu.SetActive(false);
+        creditosMenu.SetActive(false);
+        Creditos.SetActive(true);
+        BotonRetroceso.SetActive(true);
     }
 
     public void ExitGame()

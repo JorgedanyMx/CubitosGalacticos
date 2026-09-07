@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d00bf98743cadde4992cb1ea5ec1377b
+guid: 39511f2458e176e468042cd22019075f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 423973036330210499
-    second: "Cr\xE9ditos Bot\xF3n_0"
+      213: 2023396347288733302
+    second: CreditosB_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Cr\xE9ditos Bot\xF3n_0"
+      name: CreditosB_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 3607
-        height: 1087
+        width: 3840
+        height: 2160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c45ec0fa3142e500800000000000000
-      internalID: 423973036330210499
+      spriteID: 676c7f7e14c841c10800000000000000
+      internalID: 2023396347288733302
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Cr\xE9ditos Bot\xF3n_0": 423973036330210499
+      CreditosB_0: 2023396347288733302
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
