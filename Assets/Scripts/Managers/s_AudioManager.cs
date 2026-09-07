@@ -16,7 +16,18 @@ public class s_AudioManager : MonoBehaviour
             Debug.Log("Auido fuera de rango");
         else
             audioSource.PlayOneShot(audioSO.tutorialClips[clipIndex]);
-
+    }
+    public void NuevoMinigame()
+    {
+        gameData.ObtenerNumeroSinRepetirHastaAgotar();
+    }
+    public void IntroSujeto()
+    {
+        playIntroClips(gameData.currentPlayerID);
+    }
+    public void FinSujectoCorrecto()
+    {
+        playIAVocesClips(gameData.currentPlayerID);
     }
     public void playIntroClips(int clipIndex)
     {
@@ -36,6 +47,10 @@ public class s_AudioManager : MonoBehaviour
     public void BadEnding()
     {
         GetAudioTutorial(1);
+    }
+    public void GoodEnding()
+    {
+        GetAudioTutorial(2);
     }
     public void playSound(AudioClip audioClip)
     {
