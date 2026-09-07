@@ -3,75 +3,87 @@ using UnityEngine.UI;
 
 public class s_KPIScore : MonoBehaviour
 {
-    [Header("UI Bars")]
-    [SerializeField] private Image correctBar;
-    [SerializeField] private Image errorBar;
+    [Header("UI")]
+    [SerializeField] private Image scoreFill;
 
-    [Header("Score Configuration")]
-    [SerializeField] private int maximumScore = 10;
+    [Header("Porcentajes")]
+    [Range(0f, 100f)]
+    [SerializeField] private float initialPercentage = 50f;
+
+    [SerializeField] private float correctIncrease = 10f;
+    [SerializeField] private float incorrectDecrease = 10f;
+
+    [Header("Animación")]
     [SerializeField] private float fillSpeed = 1f;
 
-    private int correctScore;
-    private int errorScore;
+    [Header("Carita de resultado")]
+    [SerializeField] private Image faceImage;
+    [SerializeField] private Sprite happyFace;
+    [SerializeField] private Sprite sadFace;
 
-    private float correctTarget;
-    private float errorTarget;
+    private float currentPercentage;
+    private float targetFill;
 
     private void Start()
     {
-        ResetScores();
+        ResetScore();
     }
 
     private void Update()
     {
-        correctBar.fillAmount = Mathf.MoveTowards(
-            correctBar.fillAmount,
-            correctTarget,
-            fillSpeed * Time.deltaTime
-        );
-
-        errorBar.fillAmount = Mathf.MoveTowards(
-            errorBar.fillAmount,
-            errorTarget,
+        scoreFill.fillAmount = Mathf.MoveTowards(
+            scoreFill.fillAmount,
+            targetFill,
             fillSpeed * Time.deltaTime
         );
     }
 
-    public void AddCorrectPoint()
+    // Llamada por el evento de respuesta correcta.
+    public void AddCorrect()
     {
-        correctScore++;
-
-        correctScore = Mathf.Clamp(
-            correctScore,
-            0,
-            maximumScore
-        );
-
-        correctTarget = (float)correctScore / maximumScore;
+        currentPercentage += correctIncrease;
+        UpdatePercentage();
     }
 
-    public void AddErrorPoint()
+    // Llamada por el evento de respuesta incorrecta.
+    public void AddIncorrect()
     {
-        errorScore++;
-
-        errorScore = Mathf.Clamp(
-            errorScore,
-            0,
-            maximumScore
-        );
-
-        errorTarget = (float)errorScore / maximumScore;
+        currentPercentage -= incorrectDecrease;
+        UpdatePercentage();
     }
 
-    public void ResetScores()
+    private void UpdatePercentage()
     {
-        correctScore = 0;
-        errorScore = 0;
+        currentPercentage = Mathf.Clamp(
+            currentPercentage,
+            0f,
+            100f
+        );
 
-        correctTarget = 0f;
-        errorTarget = 0f;
+        targetFill = currentPercentage / 100f;
 
-        correctBar.fillAmount = 0f;
-        errorBar.fillAmount = 0f;
+        UpdateFace();
+    }
+
+    public void ResetScore()
+    {
+        currentPercentage = initialPercentage;
+        targetFill = currentPercentage / 100f;
+
+        scoreFill.fillAmount = targetFill;
+
+        UpdateFace();
+    }
+
+    private void UpdateFace()
+    {
+        if (currentPercentage >= 90f)
+        {
+            faceImage.sprite = happyFace;
+        }
+        else
+        {
+            faceImage.sprite = sadFace;
+        }
     }
 }

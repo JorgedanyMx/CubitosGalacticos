@@ -302,7 +302,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7946588508633013428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,10 +360,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ec8ef185f3f408dbe0d5d98319c290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::s_KPIScore
-  correctBar: {fileID: 5950974122782840420}
-  errorBar: {fileID: 710596111057282495}
-  maximumScore: 10
+  scoreFill: {fileID: 0}
+  initialPercentage: 50
+  correctIncrease: 10
+  incorrectDecrease: 10
   fillSpeed: 1
+  faceImage: {fileID: 0}
+  happyFace: {fileID: 0}
+  sadFace: {fileID: 0}
 --- !u!1 &8841586624315461264
 GameObject:
   m_ObjectHideFlags: 0
