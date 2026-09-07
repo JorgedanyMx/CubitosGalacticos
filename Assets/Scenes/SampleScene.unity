@@ -476,6 +476,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae66f9523b6f5d449a07a7f23ce77e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  gameData: {fileID: 0}
+  audioManager: {fileID: 0}
+  StartGameEvent: {fileID: 0}
+  StartMinigame: {fileID: 0}
+  CinematicaFinal: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
