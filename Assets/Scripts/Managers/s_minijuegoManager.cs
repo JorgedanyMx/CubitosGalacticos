@@ -33,10 +33,10 @@ public class s_minijuegoManager : MonoBehaviour
     {
         //pass
         MgStates = minigameStates.InicioJuego;
+        StartCoroutine(FinishMinigame(gameData.minigametime));
     }
     public void FinPrueba()
     {
-        MgStates = minigameStates.FinJuego;
         FinPruebaEvent.Raise();
         if (gameData.playerScore >= gameData.GetTotalSub())
         {
@@ -44,14 +44,21 @@ public class s_minijuegoManager : MonoBehaviour
         }
         StartCoroutine(DelayNextPrueba(10000));
     }
-
-    IEnumerator DelayNextStage(int delaytime)
+    IEnumerator FinishMinigame(float delaytime)
+    {
+        // Espera la duración exacta del clip actual
+        yield return new WaitForSeconds(delaytime);
+        FinPruebaEvent.Raise();
+        gameData.minigametime -= 1f;
+        MgStates = minigameStates.FinJuego;
+    }
+    IEnumerator DelayNextStage(float delaytime)
     {
         // Espera la duración exacta del clip actual
         yield return new WaitForSeconds(delaytime);
         IniciaPruebaEvent.Raise();
     }
-    IEnumerator DelayNextPrueba(int delaytime)
+    IEnumerator DelayNextPrueba(float delaytime)
     {
         // Espera la duración exacta del clip actual
         yield return new WaitForSeconds(delaytime);

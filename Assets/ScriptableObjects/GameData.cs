@@ -10,7 +10,9 @@ public class GameData : ScriptableObject
     public int currentScore = 0;
     private int totalSubjects = 0;
     public int currentPlayerID = 0;
+    public float minigametime = 10f;
     public GameStates gameStates = GameStates.None;
+
 
     private List<int> numerosDisponibles = new List<int>();
     public void AddSubjectCount()
@@ -36,6 +38,8 @@ public class GameData : ScriptableObject
         playerScore = 0;
         currentScore = 0;
         currentScore = 0;
+        currentPlayerID = 0;
+        minigametime = 10;
     }
     public void ObtenerNumeroSinRepetirHastaAgotar()
     {
