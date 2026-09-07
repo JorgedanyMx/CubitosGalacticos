@@ -28,7 +28,7 @@ public class p_SliderManager : MonoBehaviour
     public void OnMiniGameStart()
     {
         // maxPosition is a const, inclusive range: 0, 1, or 2
-        targetPosition = Random.Range(0, p_moveSlider.maxPosition + 1);
+        //targetPosition = Random.Range(0, p_moveSlider.maxPosition + 1);
         Debug.Log("Target position index: " + targetPosition);
     }
 }
