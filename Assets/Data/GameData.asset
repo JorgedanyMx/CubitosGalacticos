@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051e23ba09edbb14e9bebe9ed0ff06dd, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: Assembly-CSharp::GameData
-  playerScore: 0
-  currentScore: 0
-  gameStates: 0
+  playerScore: 3
+  currentScore: 5
+  gameStates: 4
