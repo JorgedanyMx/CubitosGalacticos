@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 1277029388}
   - component: {fileID: 1277029387}
   m_Layer: 5
-  m_Name: CorrectFill
+  m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -595,13 +595,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 1159275247176219774, guid: 37b05a67744eade4a967043530333810, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1277029388
@@ -886,10 +886,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de647a1387397245a770e3445ec56f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
-  Event: {fileID: 0}
+  Event: {fileID: 11400000, guid: cb427af0bcf72334ea2f8e721904dc36, type: 2}
   Response:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1714957816}
+        m_TargetAssemblyTypeName: s_KPIScore, Assembly-CSharp
+        m_MethodName: UpdateKPI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1714957816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,9 +914,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ec8ef185f3f408dbe0d5d98319c290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::s_KPIScore
-  correctBar: {fileID: 1277029387}
-  errorBar: {fileID: 0}
-  maximumScore: 10
+  gameData: {fileID: 11400000, guid: dde4e9b04f3317848a53126ea5ec0d8d, type: 2}
+  scoreFill: {fileID: 1277029387}
+  faceImage: {fileID: 1578026406}
+  happyFace: {fileID: 8100004630311028545, guid: 9f6a8e8fa8067a040ab0dfd543a10f82, type: 3}
+  sadFace: {fileID: -5950303904377683627, guid: a4a84f00d663ea141a1971ec5cbab075, type: 3}
   fillSpeed: 1
 --- !u!1 &2025100901
 GameObject:

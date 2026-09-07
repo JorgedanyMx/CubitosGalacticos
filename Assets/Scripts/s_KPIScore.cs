@@ -3,30 +3,27 @@ using UnityEngine.UI;
 
 public class s_KPIScore : MonoBehaviour
 {
+    [Header("Datos")]
+    [SerializeField] private GameData gameData;
+
     [Header("UI")]
     [SerializeField] private Image scoreFill;
+    [SerializeField] private Image faceImage;
 
-    [Header("Porcentajes")]
-    [Range(0f, 100f)]
-    [SerializeField] private float initialPercentage = 50f;
-
-    [SerializeField] private float correctIncrease = 10f;
-    [SerializeField] private float incorrectDecrease = 10f;
+    [Header("Caritas")]
+    [SerializeField] private Sprite happyFace;
+    [SerializeField] private Sprite sadFace;
 
     [Header("Animación")]
     [SerializeField] private float fillSpeed = 1f;
 
-    [Header("Carita de resultado")]
-    [SerializeField] private Image faceImage;
-    [SerializeField] private Sprite happyFace;
-    [SerializeField] private Sprite sadFace;
-
-    private float currentPercentage;
     private float targetFill;
 
     private void Start()
     {
-        ResetScore();
+        scoreFill.fillAmount = 0f;
+        targetFill = 0f;
+        UpdateFace();
     }
 
     private void Update()
@@ -38,46 +35,19 @@ public class s_KPIScore : MonoBehaviour
         );
     }
 
-    // Llamada por el evento de respuesta correcta.
-    public void AddCorrect()
+    // Esta función debe llamarla el listener.
+    public void UpdateKPI()
     {
-        currentPercentage += correctIncrease;
-        UpdatePercentage();
-    }
-
-    // Llamada por el evento de respuesta incorrecta.
-    public void AddIncorrect()
-    {
-        currentPercentage -= incorrectDecrease;
-        UpdatePercentage();
-    }
-
-    private void UpdatePercentage()
-    {
-        currentPercentage = Mathf.Clamp(
-            currentPercentage,
-            0f,
-            100f
-        );
-
-        targetFill = currentPercentage / 100f;
-
-        UpdateFace();
-    }
-
-    public void ResetScore()
-    {
-        currentPercentage = initialPercentage;
-        targetFill = currentPercentage / 100f;
-
-        scoreFill.fillAmount = targetFill;
-
+        float kpi = gameData.GetKPI();
+        
+        Debug.Log("UpdateKPI llamado, valor recibido "+ kpi);
+        targetFill = Mathf.Clamp01(kpi);
         UpdateFace();
     }
 
     private void UpdateFace()
     {
-        if (currentPercentage >= 90f)
+        if (targetFill >= 0.9f)
         {
             faceImage.sprite = happyFace;
         }
