@@ -26,19 +26,15 @@ public class s_gameManager : MonoBehaviour
     }
     public void FinMinijuegos()
     {
-    
-        if(gameData.gameStates == GameStates.cinematica)
+        Debug.Log("Se acabo el juego");
+        if (gameData.GetKPI() > .9f)
         {
-            Debug.Log("Se acabo el juego");
-            if (gameData.GetKPI() >.9f)
-            {
-                CinematicaFinal.Raise();
-            }
-            else
-            {
-                Debug.Log("Repetir nivel");
-                BadEndingFinalEvent.Raise();
-            }
+            CinematicaFinal.Raise();
+        }
+        else
+        {
+            Debug.Log("Repetir nivel");
+            BadEndingFinalEvent.Raise();
         }
     }
     public void SujetoAprovado()

@@ -11,7 +11,7 @@ public class s_minijuegoManager : MonoBehaviour
     public GameEvent StartMinigameEvent;
     public GameData gameData;
     public minigameStates MgStates;
-
+    public GameEvent FinishAllTestsEvents;
     private bool winSimon = false;
     private bool winPerilla = false;
     private bool winSliders = false;
@@ -25,47 +25,51 @@ public class s_minijuegoManager : MonoBehaviour
     {
         gameData.gameStates =GameStates.Minijuego;
         ResetScript();
-        gameData.AddSubjectCount();
         gameData.playerScore += 1;
+        gameData.UpdateNuevoSujetoID();
+        gameData.minigameCountDown = gameData.minigametime;
         StartCoroutine(DelayNextPrueba(5f));
+
     }
     public void IniciaPrueba()
     {
+        Debug.Log("Holaaa empiexza purbasjhdhasjdgsahjgdhjsadghjksa");
         MgStates = minigameStates.InicioJuego;
-        Debug.Log("Si esta entrando y ahora va a salir");
-        StartCoroutine(FinishMinigame(gameData.minigametime));
+        StartCoroutine(ContadorRegresivo());
     }
     public void FinPrueba()
     {
         if (gameData.playerScore >= gameData.GetTotalSub())
         {
             gameData.gameStates = GameStates.cinematica;
+            FinishAllTestsEvents.Raise();
+            Debug.Log("Se acabooo ya tooooooo porque no acabaaa");
         }
-        StartCoroutine(DelayNextPrueba(10f));
+        else 
+        {
+            StartCoroutine(DelayNextMinigame(5f));
+        }
     }
     IEnumerator FinishMinigame(float delaytime)
     {
         // Espera la duración exacta del clip actual
         yield return new WaitForSeconds(delaytime);
-        Debug.Log("fin de prueba");
         FinPruebaEvent.Raise();
         gameData.minigametime -= 1f;
         MgStates = minigameStates.FinJuego;
+        Debug.Log("Finaliza Prueba");
     }
-    IEnumerator DelayNextStage(float delaytime)
+    IEnumerator DelayNextMinigame(float delaytime)
     {
         // Espera la duración exacta del clip actual
         yield return new WaitForSeconds(delaytime);
-        IniciaPruebaEvent.Raise();
+        StartMinigameEvent.Raise();
     }
     IEnumerator DelayNextPrueba(float delaytime)
     {
-        Debug.Log("EmpiezaCorrutinadePrueba");
-
         // Espera la duración exacta del clip actual
         yield return new WaitForSeconds(delaytime);
         IniciaPruebaEvent.Raise();
-        Debug.Log("Inicia Prueba");
     }
     
     public void RightSimon()
@@ -102,6 +106,23 @@ public class s_minijuegoManager : MonoBehaviour
         }
         MgStates = minigameStates.FinJuego;
         ResetScript();
+    }
+    public IEnumerator ContadorRegresivo()
+    {
+        Debug.Log("Empieza Prueba contador");
+        float tmpTime = gameData.minigameCountDown;
+        while (gameData.minigameCountDown > 0)
+        {
+            // Restamos el tiempo transcurrido en cada frame
+            gameData.minigameCountDown -= Time.deltaTime;
+            // Esperamos al siguiente fotograma
+            yield return null;
+        }
+        // Mensaje final cuando la cuenta llega a cero
+        FinPruebaEvent.Raise();
+        gameData.minigametime -= 1f;
+        MgStates = minigameStates.FinJuego;
+        Debug.Log("Finaliza Prueba");
     }
     private void ResetScript()
     {
