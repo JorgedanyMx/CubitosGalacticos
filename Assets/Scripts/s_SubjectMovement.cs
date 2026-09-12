@@ -15,13 +15,10 @@ public class s_SubjectMovement : MonoBehaviour
 
     bool isMoving;
     bool isRotating;
-
-
     void Start()
     {
         RestartSubject();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -35,10 +32,9 @@ public class s_SubjectMovement : MonoBehaviour
             RotateTowardsCamera();
         }
     }
-
     public void MoveSubject()
     {
-        
+        Debug.Log("Empieza Movimiento");
         targetPosition = finalPosition.transform.position;
         isMoving = true;
         isRotating = false;

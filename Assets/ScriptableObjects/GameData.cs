@@ -2,21 +2,21 @@ using System.Collections.Generic;
 using Unity.Multiplayer.PlayMode;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using System.Collections;
+
 
 [CreateAssetMenu(fileName = "GameData", menuName = "Data/GameData")]
 public class GameData : ScriptableObject
 {
     public int playerScore = 0; 
     public int currentScore = 0;
-    private int totalSubjects = 0;
+    [SerializeField] private int totalSubjects = 0;
     public int currentPlayerID = 0;
+    public float minigametime = 10f;
     public GameStates gameStates = GameStates.None;
+    public float minigameCountDown = 0f;
 
-    private List<int> numerosDisponibles = new List<int>();
-    public void AddSubjectCount()
-    {
-        totalSubjects++;
-    }
+    [SerializeField] private List<int> numerosDisponibles = new List<int>();
     public float GetKPI()
     {
         if(totalSubjects==0)
@@ -36,8 +36,11 @@ public class GameData : ScriptableObject
         playerScore = 0;
         currentScore = 0;
         currentScore = 0;
+        currentPlayerID = 0;
+        minigametime = 10;
+        numerosDisponibles = new List<int>();
     }
-    public void ObtenerNumeroSinRepetirHastaAgotar()
+    public void UpdateNuevoSujetoID()
     {
         // Si la lista está vacía, la volvemos a llenar con la secuencia
         if (numerosDisponibles.Count == 0)
@@ -47,7 +50,6 @@ public class GameData : ScriptableObject
                 numerosDisponibles.Add(i);
             }
         }
-
         // Elegimos un índice al azar de los números disponibles
         int indiceAleatorio = Random.Range(0, numerosDisponibles.Count);
         int numeroElegido = numerosDisponibles[indiceAleatorio];
@@ -56,7 +58,9 @@ public class GameData : ScriptableObject
         numerosDisponibles.RemoveAt(indiceAleatorio);
 
         currentPlayerID = numeroElegido;
+        Debug.Log("GameData: currentPlayerID " + currentPlayerID);
     }
+
 }
 public enum GameStates
 {
