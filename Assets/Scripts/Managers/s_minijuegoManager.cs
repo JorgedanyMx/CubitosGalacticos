@@ -75,6 +75,7 @@ public class s_minijuegoManager : MonoBehaviour
     public void RightSimon()
     {
         winSimon = true;
+        Debug.Log("SimonsWin");
     }
     public void RightPerilla()
     {

@@ -9,7 +9,7 @@ public class p_SimonSaysManager : MonoBehaviour
 {
     [SerializeField] private p_ClickInputHandler playerInput;
     List<int> current;
-    public int numAmount = 2;
+    public int numAmount = 4;
     bool correct = false;
     public string stream;
 
@@ -22,7 +22,7 @@ public class p_SimonSaysManager : MonoBehaviour
     };
     public void GameStart()
     {
-        numAmount = numAmount+2;
+        //numAmount = numAmount+2;
         current = new List<int>();
         for (int i = 0; i < numAmount; i++)
         {
