@@ -19,7 +19,10 @@ public class s_AudioManager : MonoBehaviour
         if (clipIndex > audioSO.tutorialClips.Length)
             Debug.Log("Auido fuera de rango");
         else
+        {
+            audioSource.pitch = 1f;
             audioSource.PlayOneShot(audioSO.tutorialClips[clipIndex]);
+        }
     }
     public void IntroSujeto()
     {
@@ -37,6 +40,7 @@ public class s_AudioManager : MonoBehaviour
         }
         else
         {
+            audioSource.pitch = 1f;
             audioSource.PlayOneShot(audioSO.IntrosClips[clipIndex]);
         }
     }
@@ -48,19 +52,23 @@ public class s_AudioManager : MonoBehaviour
         }
         else
         {
+            audioSource.pitch = 1f;
             audioSource.PlayOneShot(audioSO.IAVoicesClips[clipIndex]);
         }
     }
     public void BadEnding()
     {
+        audioSource.pitch = 1f;
         audioSource.PlayOneShot(audioSO.tutorialClips[1]);
     }
     public void GoodEnding()
     {
+        audioSource.pitch = 1f;
         audioSource.PlayOneShot(audioSO.tutorialClips[2]);
     }
     public void playSound(AudioClip audioClip)
     {
+        audioSource.pitch = 1f;
         audioSource.PlayOneShot(audioClip);
     }
     public AudioClip GetAudioTutorial(int idx)
@@ -74,5 +82,12 @@ public class s_AudioManager : MonoBehaviour
     public AudioClip GetAudioIA(int idx)
     {
         return audioSO.IAVoicesClips[idx];
+    }
+    public void PlayScream()
+    {
+        float tmppitch = Random.Range(0f, .2f);
+        audioSource.pitch = 1f+tmppitch;
+        int randomScream = Random.Range(0,audioSO.GritosClips.Length);
+        audioSource.PlayOneShot(audioSO.GritosClips[randomScream]);
     }
 }

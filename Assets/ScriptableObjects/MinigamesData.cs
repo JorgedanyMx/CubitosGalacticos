@@ -7,5 +7,4 @@ public class MinigamesData : ScriptableObject
     public int dialValue;
     public int sliderValue;
 
-    
 }

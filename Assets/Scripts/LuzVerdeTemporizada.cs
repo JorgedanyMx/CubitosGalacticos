@@ -15,21 +15,21 @@ public class LuzVerdeTemporizada : MonoBehaviour
         }
     }
 
-    public void luxes()
+    public void Luces(float ftime)
     {
         if (luzObjeto != null)
         {
-          
+
             luzObjeto.color = Color.green;
             luzObjeto.enabled = true;
 
-            StartCoroutine(ApagarDespuesDeTiempo());
+            StartCoroutine(ApagarDespuesDeTiempo(ftime));
         }
     }
 
-    IEnumerator ApagarDespuesDeTiempo()
+    IEnumerator ApagarDespuesDeTiempo(float ftime)
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(ftime);
 
         if (luzObjeto != null)
         {

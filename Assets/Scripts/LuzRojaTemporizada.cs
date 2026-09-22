@@ -15,7 +15,7 @@ public class LuzRojaTemporizada : MonoBehaviour
         }
     }
 
-    public void Luces()
+    public void Luces(float ftime)
     {
         if (luzObjeto != null)
         {
@@ -23,13 +23,13 @@ public class LuzRojaTemporizada : MonoBehaviour
             luzObjeto.color = Color.red;
             luzObjeto.enabled = true;
 
-            StartCoroutine(ApagarDespuesDeTiempo());
+            StartCoroutine(ApagarDespuesDeTiempo(ftime));
         }
     }
 
-    IEnumerator ApagarDespuesDeTiempo()
+    IEnumerator ApagarDespuesDeTiempo(float ftime)
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(ftime);
 
         if (luzObjeto != null)
         {

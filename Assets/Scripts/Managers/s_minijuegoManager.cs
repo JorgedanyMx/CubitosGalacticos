@@ -33,7 +33,7 @@ public class s_minijuegoManager : MonoBehaviour
     }
     public void IniciaPrueba()
     {
-        Debug.Log("Holaaa empiexza purbasjhdhasjdgsahjgdhjsadghjksa");
+        gameData.gameStates = GameStates.EnPrueba;
         MgStates = minigameStates.InicioJuego;
         StartCoroutine(ContadorRegresivo());
     }
@@ -47,6 +47,7 @@ public class s_minijuegoManager : MonoBehaviour
         }
         else 
         {
+            gameData.gameStates = GameStates.AfterMinijuego;
             StartCoroutine(DelayNextMinigame(5f));
         }
     }
@@ -71,7 +72,7 @@ public class s_minijuegoManager : MonoBehaviour
         yield return new WaitForSeconds(delaytime);
         IniciaPruebaEvent.Raise();
     }
-    
+
     public void RightSimon()
     {
         winSimon = true;

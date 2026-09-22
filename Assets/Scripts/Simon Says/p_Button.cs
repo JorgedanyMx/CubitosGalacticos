@@ -12,4 +12,8 @@ public class p_Button : MonoBehaviour, p_IButton
         audioSource.Play();
         return number;
     }
+    private void OnEnable()
+    {
+        audioSource.pitch = .8f + Random.Range(0f, .4f);
+    }
 }

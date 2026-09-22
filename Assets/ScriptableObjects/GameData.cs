@@ -68,6 +68,7 @@ public enum GameStates
     Tutorial,
     Presentacion,
     Minijuego,
+    EnPrueba,
     AfterMinijuego,
     Results,
     End,

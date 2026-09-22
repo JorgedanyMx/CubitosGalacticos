@@ -1390,8 +1390,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::p_SimonSaysManager
   playerInput: {fileID: 2028038892}
+  current: 
   numAmount: 4
   stream: 
+  failSimonEvent: {fileID: 11400000, guid: 32e53f83a8654fe46af85e6c22d51d3c, type: 2}
+  RightSimonEvent: {fileID: 11400000, guid: c4bc81ed36ce2a04b8da47bb4e5f164d, type: 2}
 --- !u!114 &360575108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2122,6 +2125,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000002, y: 1.0001463, z: 1.0000007}
   m_Center: {x: -0.0000009536743, y: 0, z: 0.000000026077032}
+--- !u!114 &610505819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2182926262495776428, guid: 239f2f695b64fda469116efada20657e, type: 3}
+  m_PrefabInstance: {fileID: 1999265106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de57b85b11a8964e95e87a87894c7b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LuzVerdeTemporizada
 --- !u!1001 &727810736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2649,6 +2663,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: LuzRojo
       objectReference: {fileID: 0}
+    - target: {fileID: 5504818092607502318, guid: 99083aa19db5a0c47b55d7002fa62c46, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504818092607502318, guid: 99083aa19db5a0c47b55d7002fa62c46, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1336496614}
+    - target: {fileID: 5504818092607502318, guid: 99083aa19db5a0c47b55d7002fa62c46, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Luces
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504818092607502318, guid: 99083aa19db5a0c47b55d7002fa62c46, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LuzRojaTemporizada, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504818092607502318, guid: 99083aa19db5a0c47b55d7002fa62c46, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504818092607502318, guid: 99083aa19db5a0c47b55d7002fa62c46, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9107807521392945510, guid: 99083aa19db5a0c47b55d7002fa62c46, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1531.88
@@ -2692,7 +2730,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 421000421386214410, guid: 99083aa19db5a0c47b55d7002fa62c46, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1336496618}
   m_SourcePrefab: {fileID: 100100000, guid: 99083aa19db5a0c47b55d7002fa62c46, type: 3}
 --- !u!1 &933902923
 GameObject:
@@ -3783,6 +3824,50 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1336496612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421000421386214410, guid: 99083aa19db5a0c47b55d7002fa62c46, type: 3}
+  m_PrefabInstance: {fileID: 926804338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1336496614 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3540461557194237091, guid: 99083aa19db5a0c47b55d7002fa62c46, type: 3}
+  m_PrefabInstance: {fileID: 926804338}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336496612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b42355fbc5dd094e8e4606db877f796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LuzRojaTemporizada
+--- !u!114 &1336496618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336496612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de647a1387397245a770e3445ec56f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  Event: {fileID: 11400000, guid: 32e53f83a8654fe46af85e6c22d51d3c, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1336496614}
+        m_TargetAssemblyTypeName: LuzRojaTemporizada, Assembly-CSharp
+        m_MethodName: Luces
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1347499475
 GameObject:
   m_ObjectHideFlags: 0
@@ -3926,6 +4011,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2151586858403969569, guid: 93bafb7cc980bd945829ac1e2fe88a80, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1696453312}
+    - targetCorrespondingSourceObject: {fileID: 2151586858403969569, guid: 93bafb7cc980bd945829ac1e2fe88a80, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1696453318}
   m_SourcePrefab: {fileID: 100100000, guid: 93bafb7cc980bd945829ac1e2fe88a80, type: 3}
 --- !u!1001 &1388077880
 PrefabInstance:
@@ -4965,6 +5053,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1696453318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696453303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de647a1387397245a770e3445ec56f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  Event: {fileID: 11400000, guid: 32e53f83a8654fe46af85e6c22d51d3c, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1696453311}
+        m_TargetAssemblyTypeName: s_AudioManager, Assembly-CSharp
+        m_MethodName: PlayScream
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1715309378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4973,6 +5089,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 286977382465300430, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 286977382465300430, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 286977382465300430, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 286977382465300430, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1462
+      objectReference: {fileID: 0}
+    - target: {fileID: 286977382465300430, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1117809728405697879, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -5060,6 +5196,26 @@ PrefabInstance:
     - target: {fileID: 8821676249075586762, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091904976171326550, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091904976171326550, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091904976171326550, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091904976171326550, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091904976171326550, guid: 86f21692bfa4e4915a04a6539e4b0941, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5748,6 +5904,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: LuzVerde
       objectReference: {fileID: 0}
+    - target: {fileID: 4453613029155063054, guid: 239f2f695b64fda469116efada20657e, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453613029155063054, guid: 239f2f695b64fda469116efada20657e, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 610505819}
+    - target: {fileID: 4453613029155063054, guid: 239f2f695b64fda469116efada20657e, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Luces
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453613029155063054, guid: 239f2f695b64fda469116efada20657e, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LuzVerdeTemporizada, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453613029155063054, guid: 239f2f695b64fda469116efada20657e, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6447074774204487586, guid: 239f2f695b64fda469116efada20657e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1531.88
@@ -5837,6 +6013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::p_ClickInputHandler
   MousePos: {fileID: 2028038891}
+  gameData: {fileID: 11400000, guid: dde4e9b04f3317848a53126ea5ec0d8d, type: 2}
   cam: {fileID: 442814831}
   playerList: 
 --- !u!4 &2028038894

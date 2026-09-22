@@ -11,16 +11,19 @@ public class p_ClickInputHandler : MonoBehaviour
     private p_SimonSaysManager manager;
     public p_MousePosition MousePos;
     private InputAction IA_MouseClick;
+    public GameData gameData;
     
     public Camera cam;
 
     private Vector3 ultimoPuntoImpacto;
     private bool hayImpacto = false;
+    public List<int> playerList;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
-        manager = FindFirstObjectByType<p_SimonSaysManager>();
+        manager = FindFirstObjectByType<p_SimonSaysManager>();          //Carga el manager, y el boton
         IA_MouseClick = InputSystem.actions.FindAction("MouseClick");
         IA_MouseClick.Enable();
         IA_MouseClick.started += OnMouseClick;
@@ -37,8 +40,11 @@ public class p_ClickInputHandler : MonoBehaviour
             //Debug.Log("Starting Ray");
             if (hit.collider.TryGetComponent<p_IButton>(out p_IButton button))
             {
-                ButtonPressed(button.Clicked());
-                // Debug.Log("Button Pressed");
+                if (button.Clicked() > 0)
+                {
+                    ButtonPressed(button.Clicked());
+                    // Debug.Log("Button Pressed");
+                }
             }
             if (hit.collider.TryGetComponent<p_ISlider>(out p_ISlider slider))
             {
@@ -52,23 +58,37 @@ public class p_ClickInputHandler : MonoBehaviour
             }
         }
     }
-    public List<int> playerList;
     public void ButtonPressed(int input)
     {
-        if (playerList.Count == manager.numAmount)
-            return; // ReturnPlayerList();
+        if (gameData.gameStates != GameStates.EnPrueba)
+        {
+            playerList.Clear();
+            return;
+        }
         playerList.Add(input);
+        Debug.Log(input);
+        if (playerList.Count == manager.numAmount)
+        {
+            ReturnPlayerList();
+            return; 
+        }  
         // foreach (int num in playerList)
         //     Debug.Log(num);
-        Debug.Log(input);
-        
     }
     // OnTimeEnd or OnGameEnd
     // playerList
     public void ReturnPlayerList()
     {
+        string debugS1="",debugS2="";
+        foreach(int tmp in playerList)
+        {
+            debugS1 += tmp;
+        }
+
+        Debug.Log("Esta es la playerList: " + debugS1);
         manager.CheckPlayerChoice(playerList);
         playerList.Clear();
+        debugS1 = "";
     }
     void OnDrawGizmos()
     {

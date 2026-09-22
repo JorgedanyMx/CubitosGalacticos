@@ -8,10 +8,12 @@ using UnityEngine;
 public class p_SimonSaysManager : MonoBehaviour
 {
     [SerializeField] private p_ClickInputHandler playerInput;
-    List<int> current;
+    [SerializeField] List<int> current;
     public int numAmount = 4;
     bool correct = false;
     public string stream;
+    public GameEvent failSimonEvent;
+    public GameEvent RightSimonEvent;
 
     Dictionary<int, string> numberToColor = new Dictionary<int, string>
     {
@@ -34,14 +36,20 @@ public class p_SimonSaysManager : MonoBehaviour
     }
 
     public void CheckPlayerChoice(List<int> choice)
-    {   
+    {
+        Debug.Log("CheckSimon");
         if (choice.SequenceEqual(current))
         {
             // las dos listas son iguales
             Debug.Log("Yessir Simon");
             correct = true;
+            RightSimonEvent.Raise();
         }
         else
+        {
+            failSimonEvent.Raise();
             Debug.Log("NAH Simon");
+        }
+            
     }
 }

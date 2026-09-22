@@ -34,3 +34,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0c678bc490da02a448b66de442e2cff3, type: 3}
   - {fileID: 8300000, guid: 511e7182461b37941b52176346f85851, type: 3}
   - {fileID: 8300000, guid: 481231ddb9c12eb4cb0b525460cfbddd, type: 3}
+  GritosClips:
+  - {fileID: 8300000, guid: 3293266d96c94bc47afe5720a13c91c5, type: 3}
+  - {fileID: 8300000, guid: de22872d00ac50b418238d0ee35a5c7d, type: 3}
+  - {fileID: 8300000, guid: 4d6507cb86678b5429ee9f7913346169, type: 3}

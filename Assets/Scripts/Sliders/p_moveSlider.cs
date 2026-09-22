@@ -28,7 +28,7 @@ public class p_moveSlider : MonoBehaviour, p_ISlider
 
     void ShouldMove(Vector3 target)
     {
-        Debug.Log("Cursor: " + target.z);
+        //Debug.Log("Cursor: " + target.z);
         float tmpZtarget = target.z;
         if(tmpZtarget<min.position.z || tmpZtarget > max.position.z)
         {
@@ -36,13 +36,13 @@ public class p_moveSlider : MonoBehaviour, p_ISlider
         }
         slide.position = new Vector3 (slide.transform.position.x, slide.transform.position.y, tmpZtarget);
         finalPosition = slide.position;
-        Debug.Log(finalPosition);
-        Debug.Log("Final: " + finalPosition.z);
+        //Debug.Log(finalPosition);
+        //Debug.Log("Final: " + finalPosition.z);
     }
 
     void p_ISlider.ShouldMove(Vector3 target)
     {
-        Debug.Log("hit" + target);
+        //Debug.Log("hit" + target);
         ShouldMove(target);
     }
 }

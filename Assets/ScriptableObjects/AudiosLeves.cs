@@ -8,4 +8,5 @@ public class AudiosLeves : ScriptableObject
     public AudioClip[] IntrosClips;
     public AudioClip[] IAVoicesClips;
     public AudioClip[] tutorialClips;
+    public AudioClip[] GritosClips;
 }
