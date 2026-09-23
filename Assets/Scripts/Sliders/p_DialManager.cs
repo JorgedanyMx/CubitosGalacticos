@@ -5,6 +5,8 @@ public class p_DialManager : MonoBehaviour
     private p_dialHandler dial;
     public int targetPosition;
     bool correct;
+    public GameEvent WinDial;
+    public MinigamesData minigamesData;
 
     private void Start()
     {
@@ -17,11 +19,14 @@ public class p_DialManager : MonoBehaviour
         //Debug.Log(targetPosition);
     }
 
-    public void OnMiniGameEnd()
+    public void UpdateDial()
     {
+        Debug.Log("Actualiza la perilla");
+        targetPosition = minigamesData.dialValue;
         if (dial.currentPosition == targetPosition)
         {
             correct = true;
+            WinDial.Raise();
             Debug.Log("YUPPERS dial");
         }
         else

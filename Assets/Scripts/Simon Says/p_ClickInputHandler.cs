@@ -18,7 +18,7 @@ public class p_ClickInputHandler : MonoBehaviour
     private Vector3 ultimoPuntoImpacto;
     private bool hayImpacto = false;
     public List<int> playerList;
-
+    public GameEvent UpdateDial;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
@@ -55,6 +55,10 @@ public class p_ClickInputHandler : MonoBehaviour
             if (hit.collider.TryGetComponent<p_IDial>(out p_IDial dial))
             {
                 dial.ShouldMove();
+                if(gameData.gameStates == GameStates.EnPrueba)
+                {
+                    UpdateDial.Raise();
+                }
             }
         }
     }
@@ -85,7 +89,7 @@ public class p_ClickInputHandler : MonoBehaviour
             debugS1 += tmp;
         }
 
-        Debug.Log("Esta es la playerList: " + debugS1);
+        //Debug.Log("Esta es la playerList: " + debugS1);
         manager.CheckPlayerChoice(playerList);
         playerList.Clear();
         debugS1 = "";

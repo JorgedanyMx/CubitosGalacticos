@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class p_dialHandler : MonoBehaviour, p_IDial
 {
-    public int currentPosition = 0;
+    public int currentPosition = 1;
     public int maxPosition = 6;
     [SerializeField] private Transform min;
     [SerializeField] private Transform max;
@@ -13,18 +13,17 @@ public class p_dialHandler : MonoBehaviour, p_IDial
     void Start()
     {
         rotation = new Quaternion[maxPosition+1];
-        for (int i = 0; i < maxPosition+1; i++)
+        for (int i = 1; i < maxPosition+1; i++)
         {
             float t = (float)i / maxPosition;
             rotation[i] = Quaternion.Slerp(min.rotation, max.rotation, t);
         }
-
         gameObject.transform.rotation = rotation[0];
     }
 
     void ShouldMove()
     {
-        currentPosition = currentPosition+1 > maxPosition? currentPosition = 0: currentPosition+1;
+        currentPosition = currentPosition+1 > maxPosition? currentPosition = 1: currentPosition+1;
         gameObject.transform.rotation = rotation[currentPosition];
     }
 
