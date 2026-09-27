@@ -8,7 +8,7 @@ public class LuzVerdeTemporizada : MonoBehaviour
     void Start()
     {
         luzObjeto = GetComponent<Light>();
-
+        luzObjeto.enabled = false;
         if (luzObjeto == null)
         {
             Debug.LogError("No se encontró ningún componente Light en este GameObject.");

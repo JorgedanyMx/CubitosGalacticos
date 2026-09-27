@@ -28,7 +28,7 @@ public class p_SimonSaysManager : MonoBehaviour
         current = new List<int>();
         for (int i = 0; i < numAmount; i++)
         {
-            current.Add(UnityEngine.Random.Range(1, 4));
+            current.Add(UnityEngine.Random.Range(1, 5));
         }
         List<string> label = current.Select(n => numberToColor[n]).ToList();
         Debug.Log(string.Join(", ", current));

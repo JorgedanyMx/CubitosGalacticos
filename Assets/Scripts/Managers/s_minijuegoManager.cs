@@ -96,11 +96,13 @@ public class s_minijuegoManager : MonoBehaviour
     }
     public void MinilevelFinished()
     {
-        winMinigames = winSliders && winSimon && winPerilla;
+        //winMinigames = winSliders && winSimon && winPerilla;
+        winMinigames = winSimon && winPerilla;
         winSubject = winID && winBody;
         if (winMinigames)
         {
             WinMinigameEvent.Raise();
+            gameData.currentScore++;
         }
         else
         {
@@ -124,7 +126,7 @@ public class s_minijuegoManager : MonoBehaviour
         FinPruebaEvent.Raise();
         gameData.minigametime -= 1f;
         MgStates = minigameStates.FinJuego;
-        Debug.Log("Finaliza Prueba");
+        //Debug.Log("Finaliza Prueba");
     }
     private void ResetScript()
     {

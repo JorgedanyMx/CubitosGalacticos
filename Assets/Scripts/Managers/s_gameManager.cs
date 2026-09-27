@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
+
 
 public class s_gameManager : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class s_gameManager : MonoBehaviour
     public GameEvent StartMinigame;
     public GameEvent CinematicaFinal;
     public GameEvent BadEndingFinalEvent;
+    public GameEvent ResetSceneEvent;
 
     void Start()
     {
@@ -29,12 +32,13 @@ public class s_gameManager : MonoBehaviour
         Debug.Log("Se acabo el juego");
         if (gameData.GetKPI() > .9f)
         {
-            CinematicaFinal.Raise();
+            StartCoroutine(EsperarAudioFin(5f, CinematicaFinal));
+
         }
         else
         {
             Debug.Log("Repetir nivel");
-            BadEndingFinalEvent.Raise();
+            StartCoroutine(EsperarAudioFin(5f, BadEndingFinalEvent));
         }
     }
     public void SujetoAprovado()
@@ -49,14 +53,20 @@ public class s_gameManager : MonoBehaviour
         Debug.Log("El tutorial ha terminado de reproducirse.");
         StartMinigame.Raise();
     }
-    IEnumerator EsperarAudioFin(AudioClip clip)
+    IEnumerator EsperarAudioFin(float timedelay, GameEvent gameEvent)
     {
 
         // Espera la duración exacta del clip actual
-        yield return new WaitForSeconds(clip.length);
-
-        // El audio terminó, ejecuta tu código aquí
-        Debug.Log("El audio ha terminado de reproducirse.");
-
+        yield return new WaitForSeconds(timedelay);
+        gameEvent.Raise();
+        Debug.Log("Se reprodujo" + gameEvent.name);
+    }
+    public void DelayBadEnding()
+    {
+        StartCoroutine(EsperarAudioFin(17,ResetSceneEvent));
+    }
+    public void BadEndingResetTutorial()
+    {
+        SceneManager.LoadScene(0);
     }
 }

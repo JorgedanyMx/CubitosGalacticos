@@ -4,7 +4,6 @@ public class p_DialManager : MonoBehaviour
 {
     private p_dialHandler dial;
     public int targetPosition;
-    bool correct;
     public GameEvent WinDial;
     public MinigamesData minigamesData;
 
@@ -25,13 +24,11 @@ public class p_DialManager : MonoBehaviour
         targetPosition = minigamesData.dialValue;
         if (dial.currentPosition == targetPosition)
         {
-            correct = true;
             WinDial.Raise();
             Debug.Log("YUPPERS dial");
         }
         else
         {
-            correct = false;
             Debug.Log("NOPE dial");
         }
     }

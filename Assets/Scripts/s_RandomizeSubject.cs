@@ -60,21 +60,14 @@ public class s_RandomizeSubject : MonoBehaviour
         MeshFilter selectedHeadMesh =
             selectedHead.GetComponent<MeshFilter>();
 
-        Debug.Log(
-            $"Dato: {subjectData.subjectHead} | " +
-            $"Prefab: {selectedHead.name} | " +
-            $"Mesh origen: {selectedHeadMesh.sharedMesh.name}"
-        );
+        //Debug.Log($"Dato: {subjectData.subjectHead} | " +$"Prefab: {selectedHead.name} | " +$"Mesh origen: {selectedHeadMesh.sharedMesh.name}");
 
         activeHead.sharedMesh = selectedHeadMesh.sharedMesh;
 
         activeHead.GetComponent<MeshRenderer>().sharedMaterials =
             selectedHead.GetComponent<MeshRenderer>().sharedMaterials;
 
-        Debug.Log(
-            "Mesh colocado en activeHead: " +
-            activeHead.sharedMesh.name
-        );
+        //Debug.Log("Mesh colocado en activeHead: " +activeHead.sharedMesh.name);
 
         activeTorso.sharedMesh =
             selectedTorso.GetComponent<MeshFilter>().sharedMesh;

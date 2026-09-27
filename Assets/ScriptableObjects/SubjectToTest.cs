@@ -15,7 +15,7 @@ public class SubjectToTest : ScriptableObject
     {
         if (usedIDs.Count >= 999)
         {
-            Debug.LogWarning("Ya se utilizaron todos los IDs disponibles.");
+            //Debug.LogWarning("Ya se utilizaron todos los IDs disponibles.");
             return;
         }
 
@@ -31,7 +31,7 @@ public class SubjectToTest : ScriptableObject
 
         subjectID = newID.ToString("D3");
 
-        Debug.Log("Nuevo ID: " + subjectID);
+        //Debug.Log("Nuevo ID: " + subjectID);
     
     }
     public void randomizeHead()
@@ -47,7 +47,7 @@ public class SubjectToTest : ScriptableObject
         previousHead = newHead;
         subjectHead = $"HEAD_{newHead:D3}";
 
-        Debug.Log("Nueva cabeza: " + subjectHead);
+        //Debug.Log("Nueva cabeza: " + subjectHead);
     }
 
     public void randomizeTorso()
@@ -63,6 +63,6 @@ public class SubjectToTest : ScriptableObject
         previousTorso = newTorso;
         subjectBody = $"TORSO_{newTorso:D3}";
 
-        Debug.Log("Nuevo torso: " + subjectBody);
+        //Debug.Log("Nuevo torso: " + subjectBody);
     }
 }

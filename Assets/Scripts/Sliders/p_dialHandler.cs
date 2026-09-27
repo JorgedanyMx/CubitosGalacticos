@@ -9,9 +9,12 @@ public class p_dialHandler : MonoBehaviour, p_IDial
     [SerializeField] private Transform min;
     [SerializeField] private Transform max;
     public Quaternion[] rotation;
+    bool isBlocked=false;
+    [SerializeField] AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rotation = new Quaternion[maxPosition+1];
         for (int i = 1; i < maxPosition+1; i++)
         {
@@ -29,6 +32,24 @@ public class p_dialHandler : MonoBehaviour, p_IDial
 
     void p_IDial.ShouldMove()
     {
-        ShouldMove();
+        if (!isBlocked)
+        {
+            ShouldMove();
+            if (audioSource != null) 
+            {
+                float randomP = UnityEngine.Random.Range(0f, .2f);
+                audioSource.pitch = .9f + randomP;
+                audioSource.Play();
+                //Debug.Log("Se llama al audio");
+            }
+        }
+    }
+    public void BlockDial()
+    {
+        isBlocked = true;
+    }
+    public void UnblockDial()
+    {
+        isBlocked=false;
     }
 }

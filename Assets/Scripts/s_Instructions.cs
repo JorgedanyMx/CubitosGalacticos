@@ -69,22 +69,16 @@ public class s_Instructions : MonoBehaviour
 
     private void ConfigureSimonSays()
     {
-        if (string.IsNullOrWhiteSpace(minigamesData.simonSays))
+        if (string.IsNullOrWhiteSpace(minigamesData.simonSays))                     //Si no hay cadena,no hace nada
             return;
 
         string[] colors = minigamesData.simonSays.Split(',');
-
-        for (int i = 0; i < colorImages.Length; i++)
+        int iitr = 0;
+        foreach (string arrColor in colors)                                         //Asigna los colores
         {
-            if (i < colors.Length)
-            {
-                colorImages[i].gameObject.SetActive(true);
-                colorImages[i].sprite = GetColorSprite(colors[i]);
-            }
-            else
-            {
-                colorImages[i].gameObject.SetActive(false);
-            }
+            colorImages[iitr].sprite = GetColorSprite(arrColor);
+            colorImages[iitr].gameObject.SetActive(true);
+            iitr += 1;
         }
     }
 

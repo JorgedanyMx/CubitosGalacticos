@@ -70,7 +70,7 @@ public class p_ClickInputHandler : MonoBehaviour
             return;
         }
         playerList.Add(input);
-        Debug.Log(input);
+        //Debug.Log(input);
         if (playerList.Count == manager.numAmount)
         {
             ReturnPlayerList();
@@ -89,7 +89,7 @@ public class p_ClickInputHandler : MonoBehaviour
             debugS1 += tmp;
         }
 
-        //Debug.Log("Esta es la playerList: " + debugS1);
+        Debug.Log("Esta es la playerList: " + debugS1);                         //Esta manda la secuencia
         manager.CheckPlayerChoice(playerList);
         playerList.Clear();
         debugS1 = "";
